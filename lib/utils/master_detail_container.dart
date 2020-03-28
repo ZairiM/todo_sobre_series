@@ -63,7 +63,7 @@ class _ItemMasterDetailContainerState extends State<MasterDetailContainer> {
   @override
   Widget build(BuildContext context) {
     Widget content;
-    var shortestSide = MediaQuery.of(context).size.longestSide;
+    var shortestSide = MediaQuery.of(context).size.shortestSide;
 
     if (shortestSide < kDualPanelBreakpoint) {
       content = _buildSinglePanelLayout();

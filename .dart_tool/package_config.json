@@ -173,10 +173,10 @@
       "name": "compatibilidad_pantallas",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.7"
+      "languageVersion": "2.1"
     }
   ],
-  "generated": "2020-03-28T16:10:00.180633Z",
+  "generated": "2020-03-28T17:52:45.816899Z",
   "generator": "pub",
   "generatorVersion": "2.7.0"
 }
