@@ -1,11 +1,16 @@
-# What is it?
+# compatibilidad
 
-Sample project for implementing adaptive master-detail layouts in Flutter.
+A new Flutter project.
 
-[Read the blogpost here](https://flutter.rocks/2018/01/28/implementing-adaptive-master-detail-layouts/).
+## Getting Started
 
-All the related source code is located in [the /lib folder](https://github.com/FlutterRocks/adaptive-master-detail-layouts/tree/master/lib); no separate Android / iOS code needed.
+This project is a starting point for a Flutter application.
 
-The end result looks a little something like this:
+A few resources to get you started if this is your first Flutter project:
 
-![Adaptive master-detail layout sample on a mobile and tablet device.](https://github.com/FlutterRocks/adaptive-master-detail-layouts/raw/master/updated-end-result.gif)
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
