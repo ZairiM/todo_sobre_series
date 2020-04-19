@@ -13,12 +13,37 @@ class ItemListing extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return GridView.count(
+      crossAxisCount: 2,
       children: items.map((item) {
-        return ListTile(
-          title: Text(item.title),
-          onTap: () => itemSelectedCallback(item),
-          selected: selectedItem == item,
+        return Column(
+          children: <Widget>[
+            Card(
+              child: InkWell(
+                onTap: () => itemSelectedCallback(item),
+                child: Container(
+                  width: 300,
+                  height: 200,
+                  child: new Stack(
+                    children: <Widget>[
+                      Icon(
+                        Icons.favorite_border,
+                        color: Colors.black,
+                        size: 100.0,
+                      ),
+                      Container(
+                        width: 100,
+                        height: 100,
+                        child: Text(item.title),
+                        alignment: Alignment.bottomCenter,
+                      ),
+                    ],
+                  ),
+                  alignment: Alignment.center,
+                ),
+              ),
+            ),
+          ],
         );
       }).toList(),
     );

@@ -2,7 +2,6 @@ import 'package:compatibilidad_pantallas/models/item.dart';
 import 'package:compatibilidad_pantallas/pages/item_details.dart';
 import 'package:compatibilidad_pantallas/pages/item_listing.dart';
 import 'package:flutter/material.dart';
-
 class MasterDetailContainer extends StatefulWidget {
   @override
   _ItemMasterDetailContainerState createState() =>
@@ -23,7 +22,7 @@ class _ItemMasterDetailContainerState extends State<MasterDetailContainer> {
             builder: (BuildContext context) {
               return ItemDetails(
                 isInDualPanelLayout: false,
-                item: item,
+                item: item, capitulo: null,
               );
             },
           ),
@@ -53,7 +52,7 @@ class _ItemMasterDetailContainerState extends State<MasterDetailContainer> {
           flex: 3,
           child: ItemDetails(
             isInDualPanelLayout: true,
-            item: _selectedItem,
+            item: _selectedItem, capitulo: null,
           ),
         ),
       ],
@@ -72,10 +71,18 @@ class _ItemMasterDetailContainerState extends State<MasterDetailContainer> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Aplicación de ejemplo'),
-      ),
-      body: content,
+   appBar: AppBar(
+         leading: IconButton(
+           icon: Icon(Icons.search),
+           onPressed: null,
+
+         ),
+         title: Text('Todo Sobre Series'),
+       ),    
+      
+      body:content,
+      
     );
   }
 }
+

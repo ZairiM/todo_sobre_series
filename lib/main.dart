@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Ejemplo de compatibilidad con diferentes pantallas',
+
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
