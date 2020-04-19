@@ -1,4 +1,5 @@
 import 'package:compatibilidad_pantallas/utils/master_detail_container.dart';
+//import 'package:compatibilidad_pantallas/utils/master_detail_containere_caps.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());

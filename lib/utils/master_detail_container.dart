@@ -1,4 +1,5 @@
 import 'package:compatibilidad_pantallas/models/item.dart';
+import 'package:compatibilidad_pantallas/models/capitulo.dart';
 import 'package:compatibilidad_pantallas/pages/item_details.dart';
 import 'package:compatibilidad_pantallas/pages/item_listing.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ class _ItemMasterDetailContainerState extends State<MasterDetailContainer> {
   static const int kDualPanelBreakpoint = 600;
 
   Item _selectedItem;
+  Capitulo _selectedCapitulo;
 
   Widget _buildSinglePanelLayout() {
     return ItemListing(
@@ -52,7 +54,7 @@ class _ItemMasterDetailContainerState extends State<MasterDetailContainer> {
           flex: 3,
           child: ItemDetails(
             isInDualPanelLayout: true,
-            item: _selectedItem, capitulo: null,
+            item: _selectedItem, capitulo: _selectedCapitulo,
           ),
         ),
       ],

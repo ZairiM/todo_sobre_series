@@ -1,18 +1,21 @@
+
+import 'package:compatibilidad_pantallas/models/capitulo.dart';
 import 'package:compatibilidad_pantallas/models/item.dart';
 import 'package:compatibilidad_pantallas/pages/item_details.dart';
+import 'package:compatibilidad_pantallas/pages/capitulo_details.dart';
 import 'package:compatibilidad_pantallas/pages/item_listing.dart';
 import 'package:flutter/material.dart';
-
-class MasterDetailContainer extends StatefulWidget {
+class MasterDetailContainerCaps extends StatefulWidget {
   @override
-  _ItemMasterDetailContainerState createState() =>
-      _ItemMasterDetailContainerState();
+  _ItemMasterDetailContainerCapsState createState() =>
+      _ItemMasterDetailContainerCapsState();
 }
 
-class _ItemMasterDetailContainerState extends State<MasterDetailContainer> {
+class _ItemMasterDetailContainerCapsState extends State<MasterDetailContainerCaps> {
   static const int kDualPanelBreakpoint = 600;
 
   Item _selectedItem;
+  Capitulo _selectedCapitulo;
 
   Widget _buildSinglePanelLayout() {
     return ItemListing(
@@ -51,10 +54,9 @@ class _ItemMasterDetailContainerState extends State<MasterDetailContainer> {
         ),
         Flexible(
           flex: 3,
-          child: ItemDetails(
-            isInDualPanelLayout: true,
-            item: _selectedItem, capitulo: null,
-          ),
+          child: 
+           CapituloDetails(isInDualPanelLayout: true, 
+           item: null, capitulo: _selectedCapitulo),
         ),
       ],
     );
@@ -63,17 +65,16 @@ class _ItemMasterDetailContainerState extends State<MasterDetailContainer> {
   @override
   Widget build(BuildContext context) {
     Widget content;
-    var shortestSide = MediaQuery.of(context).size.shortestSide;
+    var shortestSide = MediaQuery.of(context).size.longestSide;
 
     if (shortestSide < kDualPanelBreakpoint) {
       content = _buildSinglePanelLayout();
     } else {
       content = _buildDualPanelLayout();
     }
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('Todo Sobre Series'),
+        title: Text('Esto es algo diferente'),
       ),
       body: content,
     );
