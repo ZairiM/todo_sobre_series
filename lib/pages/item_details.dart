@@ -8,8 +8,10 @@ class ItemDetails extends StatelessWidget {
     @required this.isInDualPanelLayout,
     @required this.item,
     @required this.capitulo,
+    @required this.capituloSelectedCallBack,
   });
 
+ final ValueChanged<Capitulo> capituloSelectedCallBack;
   final bool isInDualPanelLayout;
   final Item item;
   final Capitulo capitulo;
@@ -40,7 +42,7 @@ class ItemDetails extends StatelessWidget {
                     height: 100,
                     child: Text(
                       item?.title ?? 'Ningún elemento seleccionado!',
-                      style: textTheme.headline,
+                      style: textTheme.headline5,
                     ),
                     alignment: Alignment.topCenter,
                   ),
@@ -50,7 +52,7 @@ class ItemDetails extends StatelessWidget {
                     child: Text(
                       item?.subtitle ??
                           'Por favor escoge un elemento a la izquierda',
-                      style: textTheme.subhead,
+                      style: textTheme.subtitle1,
                     ),
                     alignment: Alignment.bottomCenter,
                   ),
@@ -108,11 +110,13 @@ class ItemDetails extends StatelessWidget {
                     alignment: Alignment.topRight,
                   ),
                   ListView(
+                    
                     children: capitulos.map((capitulo) {
                       return Column(children: <Widget>[
                         ListTile(
                           title: Text(capitulo.title),
-                          onTap: () => showToast,
+                          //onTap: () => showToast,
+                          onTap: () => capituloSelectedCallBack(capitulo),
                         ),
                         Visibility(
                           visible: _isVisible,

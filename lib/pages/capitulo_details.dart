@@ -39,8 +39,8 @@ class CapituloDetails extends StatelessWidget {
                     width: 500,
                     height: 100,
                     child: Text(
-                      item?.title ?? 'Ningún elemento seleccionado!',
-                      style: textTheme.headline,
+                      capitulo?.title ?? 'Ningún elemento seleccionado!',
+                      style: textTheme.headline5,
                     ),
                     alignment: Alignment.topCenter,
                   ),
@@ -48,9 +48,9 @@ class CapituloDetails extends StatelessWidget {
                     width: 500,
                     height: 100,
                     child: Text(
-                      item?.subtitle ??
+                      capitulo?.subtitle ??
                           'Por favor escoge un elemento a la izquierdaaaa',
-                      style: textTheme.subhead,
+                      style: textTheme.subtitle1,
                     ),
                     alignment: Alignment.bottomCenter,
                   ),
@@ -60,76 +60,9 @@ class CapituloDetails extends StatelessWidget {
             ),
           ),
         ),
-        Card(
-          child: InkWell(
-            child: Container(
-              width: 500,
-              height: 300,
-              child: new Stack(
-                children: <Widget>[
-                  Container(
-                    width: 500,
-                    height: 30,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Card(
-                          child: InkWell(
-                            child: Container(
-                              width: 30,
-                              height: 30,
-                              child: Text("1"),
-                              alignment: Alignment.center,
-                            ),
-                          ),
-                        ),
-                        Card(
-                          child: InkWell(
-                            child: Container(
-                              width: 30,
-                              height: 30,
-                              child: Text("2"),
-                              alignment: Alignment.center,
-                            ),
-                          ),
-                        ),
-                        Card(
-                          child: InkWell(
-                            child: Container(
-                              width: 30,
-                              height: 30,
-                              child: Text("3"),
-                              alignment: Alignment.center,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    alignment: Alignment.topRight,
-                  ),
-                  ListView(
-                    children: capitulos.map((capitulo) {
-                      return Column(children: <Widget>[
-                        ListTile(
-                          title: Text(capitulo.title),
-                          onTap: () => showToast,
-                        ),
-                        Visibility(
-                          visible: _isVisible,
-                          child: Text(capitulo.subtitle),
-                        ),
-                      ]);
-                    }).toList(),
-                  )
-                ],
-              ),
-              alignment: Alignment.center,
-            ),
-          ),
-        ),
       ],
     );
-
+    
     if (isInDualPanelLayout) {
       return Center(child: content);
     }

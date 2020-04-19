@@ -1,17 +1,19 @@
-
 import 'package:compatibilidad_pantallas/models/capitulo.dart';
 import 'package:compatibilidad_pantallas/models/item.dart';
 import 'package:compatibilidad_pantallas/pages/item_details.dart';
 import 'package:compatibilidad_pantallas/pages/capitulo_details.dart';
 import 'package:compatibilidad_pantallas/pages/item_listing.dart';
+import 'package:compatibilidad_pantallas/pages/capitulo.listing.dart';
 import 'package:flutter/material.dart';
+
 class MasterDetailContainerCaps extends StatefulWidget {
   @override
   _ItemMasterDetailContainerCapsState createState() =>
       _ItemMasterDetailContainerCapsState();
 }
 
-class _ItemMasterDetailContainerCapsState extends State<MasterDetailContainerCaps> {
+class _ItemMasterDetailContainerCapsState
+    extends State<MasterDetailContainerCaps> {
   static const int kDualPanelBreakpoint = 600;
 
   Item _selectedItem;
@@ -26,7 +28,21 @@ class _ItemMasterDetailContainerCapsState extends State<MasterDetailContainerCap
             builder: (BuildContext context) {
               return ItemDetails(
                 isInDualPanelLayout: false,
-                item: item, capitulo: null,
+                item: item,
+                capitulo: _selectedCapitulo,
+                capituloSelectedCallBack: (capitulo) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return CapituloDetails(
+                            isInDualPanelLayout: false,
+                            item: item,
+                            capitulo: capitulo);
+                      },
+                    ),
+                  );
+                },
               );
             },
           ),
@@ -54,14 +70,29 @@ class _ItemMasterDetailContainerCapsState extends State<MasterDetailContainerCap
         ),
         Flexible(
           flex: 3,
-          child: 
-           CapituloDetails(isInDualPanelLayout: true, 
-           item: null, capitulo: _selectedCapitulo),
+          child: ItemDetails(
+            isInDualPanelLayout: true,
+                item: _selectedItem,
+                capitulo: _selectedCapitulo,
+                capituloSelectedCallBack: (capitulo) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) {
+                        return CapituloDetails(
+                            isInDualPanelLayout: true,
+                            item: null,
+                            capitulo: capitulo);
+                      },
+                    ),
+                  );
+                },
+            
+          ),
         ),
       ],
     );
   }
-
   @override
   Widget build(BuildContext context) {
     Widget content;

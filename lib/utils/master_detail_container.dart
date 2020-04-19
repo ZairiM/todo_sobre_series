@@ -25,6 +25,7 @@ class _ItemMasterDetailContainerState extends State<MasterDetailContainer> {
               return ItemDetails(
                 isInDualPanelLayout: false,
                 item: item, capitulo: null,
+                 capituloSelectedCallBack: null,
               );
             },
           ),
@@ -54,7 +55,7 @@ class _ItemMasterDetailContainerState extends State<MasterDetailContainer> {
           flex: 3,
           child: ItemDetails(
             isInDualPanelLayout: true,
-            item: _selectedItem, capitulo: _selectedCapitulo,
+            item: _selectedItem, capitulo: null,
           ),
         ),
       ],
@@ -64,7 +65,7 @@ class _ItemMasterDetailContainerState extends State<MasterDetailContainer> {
   @override
   Widget build(BuildContext context) {
     Widget content;
-    var shortestSide = MediaQuery.of(context).size.shortestSide;
+    var shortestSide = MediaQuery.of(context).size.longestSide;
 
     if (shortestSide < kDualPanelBreakpoint) {
       content = _buildSinglePanelLayout();
